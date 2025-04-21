@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Ads(props) {
+function ads(props) {
     return (
         <div className='col-md-3'>
 
@@ -17,4 +17,4 @@ function Ads(props) {
     );
 }
 
-export default Ads;
+export default ads;

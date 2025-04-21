@@ -1,54 +1,46 @@
-import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-function Navbar() {
-    return (
-        <div>
-
-                 <nav className="navbar navbar-expand-lg  navbar-light bg-lighrt">
-  <div className="container-fluid">
-   
-  <Link className='navbar-brand' to="#">
-
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS29e6XafI9sXYsDCYNP_W9FFLi_kquk9eJnA&s" alt="Bootstrap" width="50" ></img>
+const Navbar =()=> {
+  const cartCounter = useSelector(state => state.cartCounter);//access cartCounter property
   
+    return (
+        <>
+
+                 <nav className="navbar navbar-expand-md  navbar-light bg-whitr position-fixed w-100 top-0 start-0 shadow">
+  <div className="container-fluid p-0">
+   
+  <Link className='navbar-brand text-uppercase fw-800' to="#">
+
+  <span className='border-red pe-2'>Fashion</span> 
   </Link>
+      <button
+      className='navbar-toggler'
+      type='button'
+      data-bs-toggle='collapse'
+      data-bs-target='#myNav'
+      aria-controls='myNav' 
+      aria-expanded='false'
+      aria-label='Toggle navigation'>
+        <span className='fas fa-bars'></span>
+      </button>
+      <div className='collapse navbar-collapse' id='myNav'>
+      <div className='navbar-nav ms-auto'>
+      <Link className='nav-link action' aria-current='page' to='/'>all</Link>
+      <Link className="nav-link "  to="/Man">Man</Link>
+      <Link className="nav-link "  to="/Women">Women</Link>
+      <Link className="nav-link "  to="/Kids">Kids</Link>
+      <Link className="nav-link "  to="/Accessories">Home & Leaving</Link>
+      <Link className="nav-link "  to="/Cosmetics">Beauty</Link>
+      <Link className="icon mt-2 px-3" to="/cart">
+      <span className="fas fa-shopping-bag"></span>{cartCounter}
+      </Link></div>
+      </div>
+      </div>
+      <Outlet/>
+      </nav>
 
-
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          <Link className="nav-link" aria-current="page" to="/Home">Home</Link>
-          </li>
-          <li className="nav-item">
-          <Link className="nav-link " aria-current="page" to="/Man">Man</Link>
-          </li>
-          <li className="nLinkv-item">
-          <Link className="nav-link " aria-current="page" to="/Women">Women</Link>
-          </li>
-          <li className="nav-item">
-          <Link className="nav-link " aria-current="page" to="/Kids">Kids</Link>
-          </li>
-          <li className="nav-item">
-          <Link className="nav-link " aria-current="page" to="/Leaving">Leaving</Link>
-          </li>
-          <li className="nav-item">
-          <Link className="nav-link " aria-current="page" to="/Beauty">Beauty</Link>
-          </li>
-      </ul>
-      <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<Outlet />
-
-        </div>
+        </>
     );
 }
 

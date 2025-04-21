@@ -1,26 +1,23 @@
-import React from 'react';
+import "../App.css";
 import Navbar from '../components/Navbar';
-import Carousl from '../components/Carousl';
-import Ads from '../components/ads';
 import ProductSection from '../components/ProductSection';
-import '../App.css'
+import Carousl from '../components/Carousl';
+
 
 function Home() {
-
-    let productArray = ['iphone' ,' realme' ,'oppo', 'sam']
-        return (
-        <div className='container-fluid'>
-            <Navbar/>
-            <Carousl/>
-            <div className='row'>
-
-                {productArray.map(el => <Ads name={el} />)}
-        
-            </div>
-
-                <ProductSection/>
+    return(<>
+    <div className='container-fluid bg-white mt-5 pt-3'>
+    <Navbar></Navbar>
+     <div className="row">
+    <Carousl/>
+    </div>
+    </div>
+    <div className="container bg-white">
+        <div className="row">
+            <ProductSection/>
         </div>
-    )
+    </div>
+    </>);
 }
 
 export default Home;

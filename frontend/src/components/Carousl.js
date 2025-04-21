@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Carousl() {
+const carousl =()=> {
     return (
         
             <div id="carouselExampleCaptions" className="carousel slide">
@@ -45,4 +45,4 @@ function Carousl() {
     );
 }
 
-export default Carousl;
+export default carousl;
