@@ -5,7 +5,7 @@ let storedProduct=localStorage.getItem("currentProduct")
 if(storedProduct && storedProduct !=="undefined"){
     parsedProduct= storedProduct ? JSON.parse(storedProduct) : null
 }
-let initialState = {
+const initialState = {
     product: parsedProduct,
 }
 
@@ -26,3 +26,6 @@ let CurentProductReducer= (state = initialState,action) => {
 }
 
 export default CurentProductReducer;
+
+
+

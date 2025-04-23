@@ -1,8 +1,7 @@
 import "../App.css";
 import Navbar from '../components/Navbar';
-import ProductSection from '../components/ProductSection';
+import ProductSection from '../components/productsection'; // Updated to match the file name
 import Carousl from '../components/Carousl';
-
 
 function Home() {
     return(<>

@@ -1,26 +1,24 @@
-import React, {useState , useEffect} from 'react';
-import ProductItem from './productitem';
+
+import React, { useState, useEffect } from 'react';
+import ProductItem from './productitem'; 
 
 function ProductSection() {
+    const [products, setProducts] = useState([]);
 
-   const [products, setProducts] = useState([]);
+    useEffect(() => {
+        fetch("https://localhost:3000/api/users")
+            .then(response => response.json())
+            .then(data => setProducts(data))
+            .catch(error => console.error('Error fetching products:', error));
+    }, []);
 
-   useEffect (()=> {
-    fetch("https://fakestoreapi.com/products")
-    .then(response => response.json())
-    .then(data => setProducts(data))
-    .catch(error => console.error('Error fetching products:',error));
-},[]);
-
-   
     return (
-        <>
-            {products.map(product =>(
-                <ProductItem key ={product.id} product={product}/>
+        <div className="product-container">
+            {products.map(product => (
+                <ProductItem key={product.id} product={product} />
             ))}
-        </>
+        </div>
     );
-};
-
+}
 
 export default ProductSection;
